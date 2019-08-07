@@ -15,12 +15,11 @@ namespace WikiBookGetApi.Models
         {
         }
 
+        public virtual DbSet<BookTags> BookTags { get; set; }
         public virtual DbSet<Books> Books { get; set; }
+        public virtual DbSet<Ratings> Ratings { get; set; }
         public virtual DbSet<Tags> Tags { get; set; }
-
-        // Unable to generate entity type for table 'dbo.ratings'. Please see the warning messages.
-        // Unable to generate entity type for table 'dbo.to_read'. Please see the warning messages.
-        // Unable to generate entity type for table 'dbo.book_tags'. Please see the warning messages.
+        public virtual DbSet<ToRead> ToRead { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,6 +33,19 @@ namespace WikiBookGetApi.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+
+            modelBuilder.Entity<BookTags>(entity =>
+            {
+                entity.ToTable("book_tags");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Count).HasColumnName("count");
+
+                entity.Property(e => e.GoodreadsBookId).HasColumnName("goodreads_book_id");
+
+                entity.Property(e => e.TagId).HasColumnName("tag_id");
+            });
 
             modelBuilder.Entity<Books>(entity =>
             {
@@ -108,6 +120,19 @@ namespace WikiBookGetApi.Models
                 entity.Property(e => e.WorkTextReviewsCount).HasColumnName("work_text_reviews_count");
             });
 
+            modelBuilder.Entity<Ratings>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.BookId });
+
+                entity.ToTable("ratings");
+
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
+                entity.Property(e => e.BookId).HasColumnName("book_id");
+
+                entity.Property(e => e.Rating).HasColumnName("rating");
+            });
+
             modelBuilder.Entity<Tags>(entity =>
             {
                 entity.HasKey(e => e.TagId);
@@ -122,6 +147,17 @@ namespace WikiBookGetApi.Models
                     .IsRequired()
                     .HasColumnName("tag_name")
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<ToRead>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.BookId });
+
+                entity.ToTable("to_read");
+
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
+                entity.Property(e => e.BookId).HasColumnName("book_id");
             });
         }
     }
