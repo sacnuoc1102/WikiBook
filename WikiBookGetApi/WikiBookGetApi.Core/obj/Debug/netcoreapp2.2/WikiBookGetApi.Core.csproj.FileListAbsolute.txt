@@ -1,0 +1,9 @@
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\bin\Debug\netcoreapp2.2\WikiBookGetApi.Core.deps.json
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\bin\Debug\netcoreapp2.2\WikiBookGetApi.Core.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\bin\Debug\netcoreapp2.2\WikiBookGetApi.Core.pdb
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\obj\Debug\netcoreapp2.2\WikiBookGetApi.Core.csproj.CoreCompileInputs.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\obj\Debug\netcoreapp2.2\WikiBookGetApi.Core.AssemblyInfoInputs.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\obj\Debug\netcoreapp2.2\WikiBookGetApi.Core.AssemblyInfo.cs
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\obj\Debug\netcoreapp2.2\WikiBookGetApi.Core.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\obj\Debug\netcoreapp2.2\WikiBookGetApi.Core.pdb
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.Core\obj\Debug\netcoreapp2.2\WikiBookGetApi.Core.csprojAssemblyReference.cache

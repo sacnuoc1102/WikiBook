@@ -1,0 +1,8 @@
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.csprojAssemblyReference.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.csproj.CoreCompileInputs.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.RazorAssemblyInfo.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.RazorAssemblyInfo.cs
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.AssemblyInfoInputs.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.AssemblyInfo.cs
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.1\WikiBookGetApi.pdb
