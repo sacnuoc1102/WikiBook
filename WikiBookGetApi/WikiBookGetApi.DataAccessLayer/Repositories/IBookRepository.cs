@@ -7,8 +7,8 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
 {
     public interface IBookRepository
     {
-        IEnumerable<Books> GetAllBooks();
+        IEnumerable<Book> GetAllBooks();
 
-        IEnumerable<Books> GetBooksByAuthor(string author);
+        IEnumerable<Book> GetBooksByAuthor(string author);
     }
 }

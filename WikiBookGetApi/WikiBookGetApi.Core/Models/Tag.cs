@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WikiBookGetApi.Core.Models
 {
-    public partial class Tags
+    public partial class Tag
     {
         public int TagId { get; set; }
         public string TagName { get; set; }

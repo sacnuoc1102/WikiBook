@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace WikiBookGetApi.Models
 {
-    public partial class ToRead
+    public partial class RatingModel
     {
         public int UserId { get; set; }
         public int BookId { get; set; }
+        public int Rating { get; set; }
     }
 }

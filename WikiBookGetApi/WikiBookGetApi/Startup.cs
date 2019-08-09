@@ -15,12 +15,13 @@ using WikiBookGetApi.Core.Models;
 using WikiBookGetApi.Core.Services;
 using WikiBookGetApi.DataAccessLayer.Data;
 using WikiBookGetApi.DataAccessLayer.Repositories;
+using WikiBookGetApi.Models;
 using WikiBookGetApi.Services;
-using Books = WikiBookGetApi.Core.Models.Books;
-using BookTags = WikiBookGetApi.Core.Models.BookTags;
+using Book = WikiBookGetApi.Core.Models.Book;
+using BookTag = WikiBookGetApi.Core.Models.BookTag;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
-using Ratings = WikiBookGetApi.Core.Models.Ratings;
-using Tags = WikiBookGetApi.Core.Models.Tags;
+using Rating = WikiBookGetApi.Core.Models.Rating;
+using Tag = WikiBookGetApi.Core.Models.Tag;
 using ToRead = WikiBookGetApi.Core.Models.ToRead;
 
 namespace WikiBookGetApi
@@ -60,11 +61,11 @@ namespace WikiBookGetApi
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Books,Models.Books>();
-                cfg.CreateMap<BookTags, BookTags>();
-                cfg.CreateMap<Ratings, Ratings>();
-                cfg.CreateMap<ToRead, ToRead>();
-                cfg.CreateMap<Tags, Tags>();
+                cfg.CreateMap<Book,BookModel>();
+                cfg.CreateMap<BookTag, BookTagModel>();
+                cfg.CreateMap<Rating, RatingModel>();
+                cfg.CreateMap<ToRead, ToReadModel>();
+                cfg.CreateMap<Tag, TagModel>();
             });
         }
 
@@ -90,7 +91,7 @@ namespace WikiBookGetApi
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{author?}");               
             });
 
         }

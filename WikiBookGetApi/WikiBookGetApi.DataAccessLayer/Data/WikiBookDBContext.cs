@@ -18,10 +18,10 @@ namespace WikiBookGetApi.DataAccessLayer.Data
         //{
         //}
 
-        public virtual DbSet<BookTags> BookTags { get; set; }
-        public virtual DbSet<Books> Books { get; set; }
-        public virtual DbSet<Ratings> Ratings { get; set; }
-        public virtual DbSet<Tags> Tags { get; set; }
+        public virtual DbSet<BookTag> BookTags { get; set; }
+        public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<ToRead> ToRead { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -36,7 +36,7 @@ namespace WikiBookGetApi.DataAccessLayer.Data
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
-            modelBuilder.Entity<BookTags>(entity =>
+            modelBuilder.Entity<BookTag>(entity =>
             {
                 entity.ToTable("book_tags");
 
@@ -49,7 +49,7 @@ namespace WikiBookGetApi.DataAccessLayer.Data
                 entity.Property(e => e.TagId).HasColumnName("tag_id");
             });
 
-            modelBuilder.Entity<Books>(entity =>
+            modelBuilder.Entity<Book>(entity =>
             {
                 entity.HasKey(e => e.BookId);
 
@@ -122,7 +122,7 @@ namespace WikiBookGetApi.DataAccessLayer.Data
                 entity.Property(e => e.WorkTextReviewsCount).HasColumnName("work_text_reviews_count");
             });
 
-            modelBuilder.Entity<Ratings>(entity =>
+            modelBuilder.Entity<Rating>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.BookId });
 
@@ -132,10 +132,10 @@ namespace WikiBookGetApi.DataAccessLayer.Data
 
                 entity.Property(e => e.BookId).HasColumnName("book_id");
 
-                entity.Property(e => e.Rating).HasColumnName("rating");
+                entity.Property(e => e.RatingPoint).HasColumnName("rating");
             });
 
-            modelBuilder.Entity<Tags>(entity =>
+            modelBuilder.Entity<Tag>(entity =>
             {
                 entity.HasKey(e => e.TagId);
 

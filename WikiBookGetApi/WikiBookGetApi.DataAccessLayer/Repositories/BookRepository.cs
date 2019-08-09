@@ -20,12 +20,12 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
             this.context = context;
         }
 
-        public IEnumerable<Books> GetAllBooks()
+        public IEnumerable<Book> GetAllBooks()
         {
             return this.context.Books.ToList();
         }
 
-        public IEnumerable<Books> GetBooksByAuthor(string author)
+        public IEnumerable<Book> GetBooksByAuthor(string author)
         {
             return  context.Books.Where(t =>t.Authors.Contains(author)).ToList();
         }

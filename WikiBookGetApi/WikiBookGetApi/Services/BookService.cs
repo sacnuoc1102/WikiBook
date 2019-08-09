@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WikiBookGetApi.Core.Services;
 using WikiBookGetApi.DataAccessLayer.Repositories;
-using Books = WikiBookGetApi.Core.Models.Books;
+using Book = WikiBookGetApi.Core.Models.Book;
 
 namespace WikiBookGetApi.Services
 {
@@ -17,14 +17,14 @@ namespace WikiBookGetApi.Services
             this.bookRepository = bookRepository;
         }
 
-        public IEnumerable<Core.Models.Books> GetAllBooks()
+        public IEnumerable<Book> GetAllBooks()
         {
             return this.bookRepository.GetAllBooks();
         }
 
-        public IEnumerable<Core.Models.Books> GetBooksByAuthor(string author)
+        public IEnumerable<Book> GetBooksByAuthor(string author)
         {
-            return (IEnumerable<Books>) this.bookRepository.GetBooksByAuthor(author);
+            return this.bookRepository.GetBooksByAuthor(author);
         }
     }
 }

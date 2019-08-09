@@ -5,9 +5,9 @@ namespace WikiBookGetApi.Core.Services
 {
     public interface IBookService
     {
-        IEnumerable<Books> GetAllBooks();
+        IEnumerable<Book> GetAllBooks();
 
-        IEnumerable<Books> GetBooksByAuthor(string author);
+        IEnumerable<Book> GetBooksByAuthor(string author);
 
     }
 }

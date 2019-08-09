@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace WikiBookGetApi.Core.Models
+namespace WikiBookGetApi.Models
 {
-    public partial class BookTags
+    public partial class BookTagModel
     {
         public int GoodreadsBookId { get; set; }
         public int TagId { get; set; }

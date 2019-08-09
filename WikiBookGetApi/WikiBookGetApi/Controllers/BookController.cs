@@ -21,17 +21,25 @@ namespace WikiBookGetApi.Controllers
         }
         // GET: api/Book
         [HttpGet]
-        public ActionResult<IEnumerable<Books>> GetAllBooks()
+        public ActionResult<IEnumerable<Book>> GetAllBooks()
         {
             return bookService.GetAllBooks().ToList();
         }
 
-        // GET: api/Book/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+
+        // GET: api/Book/authorName
+        [HttpGet("{author}", Name ="Get")]
+        public ActionResult<IEnumerable<Book>> GetBookByAuthor(string author)
         {
-            return "value";
+            return bookService.GetBooksByAuthor(author).ToList();
         }
+
+        //// GET: api/Book/5
+        //[HttpGet("{id}", Name = "Get")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST: api/Book
         [HttpPost]
