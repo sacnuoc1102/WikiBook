@@ -28,3 +28,7 @@ C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcorea
 C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.2\WikiBookGetApi.pdb
 C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.2\WikiBookGetApi.csproj.CopyComplete
 C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\obj\Debug\netcoreapp2.2\WikiBookGetApi.csprojAssemblyReference.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\bin\Debug\netcoreapp2.2\WikiBookGetApi.Core.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\bin\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\bin\Debug\netcoreapp2.2\WikiBookGetApi.Core.pdb
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi\bin\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.pdb

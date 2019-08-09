@@ -1,0 +1,14 @@
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\obj\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\obj\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\obj\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\obj\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.AssemblyInfo.cs
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\bin\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.deps.json
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\bin\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\bin\Debug\netcoreapp2.2\WikiBookGetApi.Core.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\bin\Debug\netcoreapp2.2\WikiBookGetApi.Core.pdb
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\obj\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.csproj.CopyComplete
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\bin\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.runtimeconfig.json
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\bin\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.runtimeconfig.dev.json
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\bin\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.pdb
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\obj\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.dll
+C:\Users\hle\Documents\WikiBook\WikiBookGetApi\WikiBookGetApi.DataAccessLayer\obj\Debug\netcoreapp2.2\WikiBookGetApi.DataAccessLayer.pdb
