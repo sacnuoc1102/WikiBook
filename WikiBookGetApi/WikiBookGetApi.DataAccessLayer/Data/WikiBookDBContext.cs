@@ -6,31 +6,19 @@ namespace WikiBookGetApi.DataAccessLayer.Data
 {
     public partial class WikiBookDBContext : DbContext
     {
-        public IConfiguration Configuration { get; private set; }
+        public WikiBookDBContext()
+        { }
 
-        public WikiBookDBContext(IConfiguration configuration)
+        public WikiBookDBContext(DbContextOptions<WikiBookDBContext> options)
+            : base(options)
         {
-            this.Configuration = configuration;
         }
-
-        //public WikiBookDBContext(DbContextOptions<WikiBookDBContext> options)
-        //    : base(options)
-        //{
-        //}
 
         public virtual DbSet<BookTag> BookTags { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<ToRead> ToRead { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(this.Configuration.GetConnectionString("bookDatabase"));
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

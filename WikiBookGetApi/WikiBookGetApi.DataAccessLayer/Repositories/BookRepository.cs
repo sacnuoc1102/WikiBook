@@ -20,6 +20,10 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
             this.context = context;
         }
 
+        public BookRepository()
+        {
+        }
+
         public IEnumerable<Book> GetAllBooks()
         {
             return this.context.Books.ToList();
@@ -27,6 +31,11 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
 
         public IEnumerable<Book> GetBooksByAuthor(string author)
         {
+            if (string.IsNullOrWhiteSpace(author))
+            {
+                throw new ArgumentNullException(nameof(author));
+            }
+
             return  context.Books.Where(t =>t.Authors.Contains(author)).ToList();
         }
 
