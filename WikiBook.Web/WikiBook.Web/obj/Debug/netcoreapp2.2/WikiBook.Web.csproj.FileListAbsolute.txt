@@ -28,3 +28,5 @@ C:\Users\hle\Documents\WikiBook\WikiBook.Web\WikiBook.Web\obj\Debug\netcoreapp2.
 C:\Users\hle\Documents\WikiBook\WikiBook.Web\WikiBook.Web\obj\Debug\netcoreapp2.2\WikiBook.Web.dll
 C:\Users\hle\Documents\WikiBook\WikiBook.Web\WikiBook.Web\obj\Debug\netcoreapp2.2\WikiBook.Web.pdb
 C:\Users\hle\Documents\WikiBook\WikiBook.Web\WikiBook.Web\obj\Debug\netcoreapp2.2\WikiBook.Web.csproj.CopyComplete
+C:\Users\hle\Documents\WikiBook\WikiBook.Web\WikiBook.Web\obj\Debug\netcoreapp2.2\Razor\Pages\Book\Index.g.cshtml.cs
+C:\Users\hle\Documents\WikiBook\WikiBook.Web\WikiBook.Web\obj\Debug\netcoreapp2.2\Razor\Views\Book\Index.g.cshtml.cs

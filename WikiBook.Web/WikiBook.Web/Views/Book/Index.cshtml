@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WikiBook.Web.Models.BookModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>List of Book</h2>
+
+
+<ol>
+    @foreach (var item in Model)
+    {
+        <li>@string.Format("{0} -{1} -{2} -{3}", item.BookId.ToString(), item.Title, item.Authors, item.AverageRating.ToString("0.00"))</li>
+    }
+</ol>
