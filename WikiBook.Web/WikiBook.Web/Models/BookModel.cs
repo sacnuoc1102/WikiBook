@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,7 +8,9 @@ namespace WikiBook.Web.Models
 {
     public partial class BookModel
     {
+        [Display(Name = "Book ID")]
         public int BookId { get; set; }
+
         public int GoodreadsBookId { get; set; }
         public int BestBookId { get; set; }
         public int WorkId { get; set; }

@@ -13,9 +13,11 @@ namespace WikiBook.Web
 {
     public class Startup
     {
+        public static string ConnectionString { get; private set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
