@@ -1,11 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NUnit.Framework;
 
 namespace WikiBook.Web.Tests
 {
-    class BookControllerTests
+    [TestFixture]
+    public class BookControllerTests
     {
 
+        //Mocking
+
+
+        public BookControllerTests()
+        {
+
+        }
+
+        
     }
 }
