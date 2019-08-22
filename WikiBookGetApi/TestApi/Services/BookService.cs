@@ -6,9 +6,8 @@ using WikiBookGetApi.Core.Models;
 using WikiBookGetApi.Core.SearchModels;
 using WikiBookGetApi.Core.Services;
 using WikiBookGetApi.DataAccessLayer.Repositories;
-using Book = WikiBookGetApi.Core.Models.Book;
 
-namespace WikiBookGetApi.Services
+namespace TestApi.Services
 {
     public class BookService : IBookService
     {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBookGetApi", "WikiBookGetApi\WikiBookGetApi.csproj", "{E61DA64D-F42C-4E1D-BB6E-519B68B8C1D1}"
 EndProject
@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBookGetApi.Core", "Wiki
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBookGetApi.DataAccessLayer", "WikiBookGetApi.DataAccessLayer\WikiBookGetApi.DataAccessLayer.csproj", "{462ACBF4-D737-4B59-AD6D-682CAF783920}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiBookGetApi.DataAccessLayer.Tests", "WikiBookGetApi.DataAccessLayer.Tests\WikiBookGetApi.DataAccessLayer.Tests.csproj", "{291C25FD-5B71-45FA-B486-149E80FF945E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBookGetApi.DataAccessLayer.Tests", "WikiBookGetApi.DataAccessLayer.Tests\WikiBookGetApi.DataAccessLayer.Tests.csproj", "{291C25FD-5B71-45FA-B486-149E80FF945E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBookGetApi.ControllerTests", "WikiBookGetApi.ControllerTests\WikiBookGetApi.ControllerTests.csproj", "{7DED3F28-60DC-41A7-9233-EC88014F3CFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiBookGetApiTests", "WikiBookGetApiTests\WikiBookGetApiTests.csproj", "{D0E7DF09-20D7-456F-86C7-A6D0A9643CC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApi", "TestApi\TestApi.csproj", "{1EB726AF-AA23-4D5F-8FB8-5BA679E75027}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{291C25FD-5B71-45FA-B486-149E80FF945E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{291C25FD-5B71-45FA-B486-149E80FF945E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{291C25FD-5B71-45FA-B486-149E80FF945E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DED3F28-60DC-41A7-9233-EC88014F3CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DED3F28-60DC-41A7-9233-EC88014F3CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DED3F28-60DC-41A7-9233-EC88014F3CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DED3F28-60DC-41A7-9233-EC88014F3CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E7DF09-20D7-456F-86C7-A6D0A9643CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E7DF09-20D7-456F-86C7-A6D0A9643CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E7DF09-20D7-456F-86C7-A6D0A9643CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E7DF09-20D7-456F-86C7-A6D0A9643CC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EB726AF-AA23-4D5F-8FB8-5BA679E75027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EB726AF-AA23-4D5F-8FB8-5BA679E75027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EB726AF-AA23-4D5F-8FB8-5BA679E75027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EB726AF-AA23-4D5F-8FB8-5BA679E75027}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

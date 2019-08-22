@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -13,17 +15,17 @@ namespace WikiBookGetApi.DataAccessLayer.Tests
     public class BookRepositoryTests
     {
         private Mock<WikiBookDBContext> mockBookDbContext;
-        private Mock<BookRepository> repository;
+        private BookRepository repository;
         private Mock<DbSet<Book>> mockDbSet;
 
         public BookRepositoryTests()
         {
             this.mockBookDbContext = new Mock<WikiBookDBContext>();
-            this.repository = new Mock<BookRepository>();
+            this.repository = new BookRepository(mockBookDbContext.Object);
             this.mockDbSet = new Mock<DbSet<Book>>();
-            
+            this.mockDbSet.Object.Add(new Book {Authors = "mock"});
             //set up mocking object
-            this.mockBookDbContext.Setup(m => m.Books).Returns(mockDbSet.Object);         
+
         }
 
 
@@ -31,13 +33,25 @@ namespace WikiBookGetApi.DataAccessLayer.Tests
         public void GetAllBooks_SuccessfullyRetrieved()
         {
             // Arrange
-
+            this.mockBookDbContext.Setup(m => m.Books).Returns(mockDbSet.Object);
+            
             // Act
-            repository.Object.GetAllBooks();
+            var temp = repository.GetAllBooks();
 
             //Assert
-            repository.Verify(x => x.GetAllBooks(),Times.Exactly(1));
+            Assert.NotNull(temp);
         }
 
+        [Test]
+        public void GetAllBooks_EmptyDBObject_FailRetrieved()
+        {
+            // Arrange           
+
+            // Act
+            var temp = repository.GetAllBooks();
+
+            //Assert
+            Assert.IsNull(temp);
+        }
     }
 }

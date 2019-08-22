@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiBook.WebClient", "WikiBook.WebClient\WikiBook.WebClient.csproj", "{C4398AED-DEAE-4AEE-B458-4635A0C3B90C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBook.WebClient", "WikiBook.WebClient\WikiBook.WebClient.csproj", "{C4398AED-DEAE-4AEE-B458-4635A0C3B90C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiBook.WebClient.Tests", "WikiBook.WebClient.Tests\WikiBook.WebClient.Tests.csproj", "{C1C2898E-7DDB-4BD9-8F1C-65F1D7776095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C4398AED-DEAE-4AEE-B458-4635A0C3B90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4398AED-DEAE-4AEE-B458-4635A0C3B90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4398AED-DEAE-4AEE-B458-4635A0C3B90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1C2898E-7DDB-4BD9-8F1C-65F1D7776095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C2898E-7DDB-4BD9-8F1C-65F1D7776095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C2898E-7DDB-4BD9-8F1C-65F1D7776095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C2898E-7DDB-4BD9-8F1C-65F1D7776095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
