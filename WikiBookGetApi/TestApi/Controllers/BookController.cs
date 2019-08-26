@@ -14,23 +14,13 @@ namespace TestApi.Controllers
     public class BookController : ControllerBase
     {
         /// <summary>
-        /// Main service
+        /// Main service 
         /// </summary>
         private readonly IBookService bookService;
 
         public BookController(IBookService bookService)
         {
             this.bookService = bookService;
-        }
-
-        /// <summary>
-        /// get all book from Book Api
-        /// </summary>
-        /// <returns> List of book </returns>
-        [HttpGet]
-        public ActionResult<IEnumerable<Book>> GetAllBook()
-        {
-            return this.bookService.GetAllBooks().ToList();
         }
 
         /// <summary>
@@ -41,9 +31,12 @@ namespace TestApi.Controllers
         /// <param name="Id">Search parameter for Id search</param>
         /// <returns>List of book filtered by search parameters</returns>
         [HttpGet]
-        [Route("api/Book")]
         public ActionResult<IEnumerable<Book>> GetBook(string Author, string Title, int Id)
         {
+            if (string.IsNullOrWhiteSpace(Author) && string.IsNullOrWhiteSpace(Title) && Id == 0)
+            {
+                return bookService.GetAllBooks().ToList();
+            }
             var searchParameter = new SearchParameterModel { Author = Author, Title = Title, Id = Id };
             var tempResult = bookService.GetBook(searchParameter);
             if (tempResult == null)

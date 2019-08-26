@@ -21,7 +21,7 @@ namespace WikiBook.WebClient.Business
         /// Get the books list from database through the API
         /// </summary>
         /// <returns>List of books</returns>
-        public List<BookModel> GetBooksFromApi()
+        public IList<BookModel> GetBooksFromApi()
         {
             try
             {
@@ -50,23 +50,37 @@ namespace WikiBook.WebClient.Business
 
         }
 
+
         /// <summary>
-        /// Search for books whose from author name
+        /// 
         /// </summary>
         /// <param name="author"></param>
-        /// <returns>list of books by author</returns>
-        public List<BookModel> GetBookByAuthor(string author)
+        /// <param name="title"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IList<BookModel> GetBookByFilter(string author, string title, int id)
         {
-            if (string.IsNullOrWhiteSpace(author))
+            var connectionstring = config["SearchByAuthorConnectionString"];
+
+            if (!string.IsNullOrWhiteSpace(author))
             {
-                throw new ArgumentNullException(nameof(author));
+                connectionstring += "&Author=" + author;
             }
-            try
+            if (!string.IsNullOrWhiteSpace(title))
             {
-                var connectionstring = config["SearchByAuthorConnectionString"];
+                connectionstring += "&Title=" + title; 
+            }
+            if (id > 0)
+            {
+                connectionstring += "&Id=" + id;         
+            }
+            // if author not null >> add  the query /book?author=author
+            //  $(api/Book? {0} 
+            try
+            {               
                 var resultList = new List<BookModel>();
                 var client = new HttpClient();
-                var getDataTask = client.GetAsync(connectionstring + author.ToString())
+                var getDataTask = client.GetAsync(connectionstring)
                     .ContinueWith(response =>
                     {
                         var result = response.Result;
@@ -85,7 +99,9 @@ namespace WikiBook.WebClient.Business
                 Console.WriteLine(e);
                 throw;
             }
+
         }
+
 
 
     }

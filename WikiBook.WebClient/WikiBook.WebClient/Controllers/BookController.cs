@@ -27,10 +27,17 @@ namespace WikiBook.WebClient.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string author)
-        {
-            var books = this.bookApiHelper.GetBookByAuthor(author);
+        public IActionResult Index(string author,string title, int id)
+        {          
+            var books = this.bookApiHelper.GetBookByFilter(author, title, id);
             return View(books);
+        }
+
+        [HttpPost]
+        public IActionResult BookDetail(int? id)
+        {
+            var selectedBook = this.bookApiHelper.GetBookByFilter(null, null, Convert.ToInt32(id)).FirstOrDefault();
+            return View(selectedBook);
         }
     }
 }

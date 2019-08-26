@@ -62,7 +62,7 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
 
         public IEnumerable<Book> GetBook(SearchParameterModel searchParameter)
         {
-            IEnumerable<Book> tempResult= null;
+            IEnumerable<Book> tempResult= context.Books;
 
             if (!string.IsNullOrWhiteSpace(searchParameter.Author))
             {
@@ -76,7 +76,6 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
             {
                 tempResult = tempResult.Where(b => b.BookId == searchParameter.Id).ToList();
             }
-
             return tempResult;
         }
     }

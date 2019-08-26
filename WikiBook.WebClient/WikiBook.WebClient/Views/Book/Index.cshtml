@@ -4,20 +4,64 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>List of Book</h2>
-
 <form asp-controller="Book" asp-action="Index">
+   
+
     <p>
         Author: <input type="text" name="Author">
-        <input type="submit" value="Filter" />
+
+        Title: <input type="text" name="Title">
+
+        Id: <input type="number" name="Id">
+        <input type="submit" class="bg-light" value="Search" />
     </p>
+    
+</form>
+<form asp-controller="Book" asp-action="BookDetail">
+    <table class="table">
+        <tr>
+            <th>
+                Cover
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().BookId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().OriginalTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Authors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().AverageRating)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>
+                    <img alt="" src="@Html.DisplayFor(modelItem => book.SmallImageUrl)" style="display: inline; margin-right: 5px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => book.BookId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => book.OriginalTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => book.Authors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => book.AverageRating)
+                </td>
+                <td>
+                    <button type="submit" class="btn-info" asp-controller="Book" asp-action="BookDetail" asp-route-id="@book.BookId">overview</button>
+                </td>
+            </tr>
+        }
+
+    </table>
 </form>
 
-
-
-<ol>
-    @foreach (var item in Model)
-    {
-        <li>@string.Format("{0} -{1} -{2} -{3}", item.BookId.ToString(), item.Title, item.Authors, item.AverageRating.ToString("0.00"))</li>
-    }
-</ol>
