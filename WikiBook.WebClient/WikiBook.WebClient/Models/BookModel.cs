@@ -14,15 +14,21 @@ namespace WikiBook.WebClient.Models
         public int GoodreadsBookId { get; set; }
         public int BestBookId { get; set; }
         public int WorkId { get; set; }
+        [Display(Name = "Books Count")]
         public int BooksCount { get; set; }
         public string Isbn { get; set; }
         public double? Isbn13 { get; set; }
         public string Authors { get; set; }
+        [Display(Name ="Original Publication Year")]
         public double? OriginalPublicationYear { get; set; }
+        [Display(Name ="Original Title")]
         public string OriginalTitle { get; set; }
         public string Title { get; set; }
+        [Display(Name ="Language Code")]
         public string LanguageCode { get; set; }
+        [Display(Name ="Average Rating")]
         public double AverageRating { get; set; }
+        [Display(Name = "Ratings Count")]
         public int RatingsCount { get; set; }
         public int WorkRatingsCount { get; set; }
         public int WorkTextReviewsCount { get; set; }

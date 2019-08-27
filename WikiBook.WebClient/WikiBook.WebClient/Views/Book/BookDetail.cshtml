@@ -1,52 +1,117 @@
 ﻿@model BookModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "BookDetail";
 }
 
 <h1>@Model.OriginalTitle</h1>
-<dl class="dl-horizontal">
-    <dd>
-        <img alt="" src="@Html.DisplayFor(model =>model.ImageUrl)" style="display: inline; margin-right: 5px;" />
-    </dd>
+<dd>
+    <img alt="" src="@Html.DisplayFor(model =>model.ImageUrl)" style="display: inline; margin-right: 5px; margin-bottom: 20px;" />
+</dd>
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.BookId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.BookId)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.OriginalTitle)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.OriginalTitle)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.Authors)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Authors)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.AverageRating)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.AverageRating)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.Isbn)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Isbn)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.LanguageCode)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.LanguageCode)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.GoodreadsBookId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.GoodreadsBookId)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.OriginalPublicationYear)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.OriginalPublicationYear)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.RatingsCount)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.RatingsCount)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => Model.BooksCount)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.BooksCount)
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    @if (SignInManager.IsSignedIn(User))
+    {    <form asp-controller="Book" asp-action="BookDetail">
 
 
-    <dt>
-        @Html.DisplayNameFor(model => model.BookId)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.BookId)
-    </dd>
-    <dt>
-        @Html.DisplayNameFor(model => model.OriginalTitle)
-    </dt>
+             <p>
+                 Author: <input type="text" name="Author">
 
-    <dd>
-        @Html.DisplayFor(model => model.OriginalTitle)
-    </dd>
+                 Title: <input type="text" name="Title">
 
-    <dt>
-        @Html.DisplayNameFor(model => model.Authors)
-    </dt>
+                 BookId: <input type="number" name="BookId">
+                 <input type="submit" class="bg-light" value="Search" />
+                 <button type="submit" class="btn" asp-controller="Book" asp-action="LikeABook">overview</button>
+             </p>
 
-    <dd>
-        @Html.DisplayFor(model => model.Authors)
-    </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.AverageRating)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.AverageRating)
-    </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.Isbn)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Isbn)
-    </dd>
-</dl>
-
-
+         </form>
+           
+    }
+</div>
 

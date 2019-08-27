@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using WikiBook.WebClient.Business;
@@ -27,10 +28,24 @@ namespace WikiBook.WebClient.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string author,string title, int id)
-        {          
-            var books = this.bookApiHelper.GetBookByFilter(author, title, id);
+        public IActionResult Index(string author,string title, int? bookId)
+        {     
+            if(!ModelState.IsValid)
+            {
+                return BadRequest("something went wrong");
+            }
+            var books = this.bookApiHelper.GetBookByFilter(author, title, bookId);
+            //if(books == null)
+            //{
+            //    return BadRequest("there is no result with search values");
+            //}
             return View(books);
+        }
+
+        [HttpGet]
+        public IActionResult BookDetail()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -38,6 +53,13 @@ namespace WikiBook.WebClient.Controllers
         {
             var selectedBook = this.bookApiHelper.GetBookByFilter(null, null, Convert.ToInt32(id)).FirstOrDefault();
             return View(selectedBook);
+        }
+
+        [HttpPost]
+        public IActionResult LikeABook()
+        {
+            var temp = User.Identity.Name.ToString();
+            return Redirect("BookDetail");
         }
     }
 }

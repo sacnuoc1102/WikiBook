@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<WikiBook.WebClient.Models.BookModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All books";
 }
 
 <form asp-controller="Book" asp-action="Index">
@@ -12,16 +12,16 @@
 
         Title: <input type="text" name="Title">
 
-        Id: <input type="number" name="Id">
+        BookId: <input type="number" name="BookId">
         <input type="submit" class="bg-light" value="Search" />
     </p>
     
 </form>
 <form asp-controller="Book" asp-action="BookDetail">
-    <table class="table">
+    <table class="border table-striped table-responsive-xl text-lg-center">
         <tr>
             <th>
-                Cover
+                <text style="margin: 3px"> Cover</text>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().BookId)
@@ -42,7 +42,7 @@
         {
             <tr>
                 <td>
-                    <img alt="" src="@Html.DisplayFor(modelItem => book.SmallImageUrl)" style="display: inline; margin-right: 5px;" />
+                    <img alt="" src="@Html.DisplayFor(modelItem => book.SmallImageUrl)" style="display: inline; margin: 10px;" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => book.BookId)
@@ -57,7 +57,7 @@
                     @Html.DisplayFor(modelItem => book.AverageRating)
                 </td>
                 <td>
-                    <button type="submit" class="btn-info" asp-controller="Book" asp-action="BookDetail" asp-route-id="@book.BookId">overview</button>
+                    <button type="submit" class="btn-outline-dark rounded-pill" asp-controller="Book" asp-action="BookDetail" asp-route-id="@book.BookId" style="margin:10px">overview</button>
                 </td>
             </tr>
         }

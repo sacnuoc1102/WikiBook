@@ -1,8 +1,18 @@
-﻿@{
+﻿@model WikiBook.WebClient.Models.BookModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Welcome to Wiki Book</h1>
+        <p>The largest book database portal in the world</p>
+
+        <div class="form-check-input" style="padding-left: 23%; padding-right: 23%">
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.OriginalTitle, new { style = "width: 100%" })
+                <input type="submit" class="bg-light" value="Search" style="margin-top:10px" />
+            </div>
+        </div>
+    </div>
+
+

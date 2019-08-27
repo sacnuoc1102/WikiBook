@@ -50,7 +50,6 @@ namespace WikiBook.WebClient.Business
 
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -58,7 +57,7 @@ namespace WikiBook.WebClient.Business
         /// <param name="title"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public IList<BookModel> GetBookByFilter(string author, string title, int id)
+        public IList<BookModel> GetBookByFilter(string author, string title, int? id)
         {
             var connectionstring = config["SearchByAuthorConnectionString"];
 
