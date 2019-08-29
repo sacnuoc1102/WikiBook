@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace WikiBookGetApi.Core.Models
+namespace WikiBookGetApi.DataAccessLayer.Models
 {
-    public partial class Rating
+    public partial class ToRead
     {
         public int UserId { get; set; }
         public int BookId { get; set; }
-        public int RatingPoint { get; set; }
     }
 }

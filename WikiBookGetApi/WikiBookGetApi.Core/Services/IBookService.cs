@@ -6,14 +6,14 @@ namespace WikiBookGetApi.Core.Services
 {
     public interface IBookService
     {
-        IEnumerable<Book> GetAllBooks();
+        IEnumerable<BookDTO> GetAllBooks();
 
-        IEnumerable<Book> GetBooksByAuthor(string author);
+        IEnumerable<BookDTO> GetBooksByAuthor(string author);
 
-        Book GetBookById(int id);
+        BookDTO GetBookById(int id);
 
-        IEnumerable<Book> GetBooksByTitle(string title);
+        IEnumerable<BookDTO> GetBooksByTitle(string title);
 
-        IEnumerable<Book> GetBook(SearchParameterModel searchParameter);
+        IEnumerable<BookDTO> GetBook(SearchParameterModel searchParameter);
     }
 }

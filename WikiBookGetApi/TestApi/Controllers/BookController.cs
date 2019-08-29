@@ -31,7 +31,7 @@ namespace TestApi.Controllers
         /// <param name="Id">Search parameter for Id search</param>
         /// <returns>List of book filtered by search parameters</returns>
         [HttpGet]
-        public ActionResult<IEnumerable<Book>> GetBook(string Author, string Title, int Id)
+        public ActionResult<IEnumerable<BookDTO>> GetBook(string Author, string Title, int Id)
         {
             if (string.IsNullOrWhiteSpace(Author) && string.IsNullOrWhiteSpace(Title) && Id == 0)
             {

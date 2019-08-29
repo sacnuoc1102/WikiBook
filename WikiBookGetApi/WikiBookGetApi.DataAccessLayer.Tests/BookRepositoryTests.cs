@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;
 using WikiBookGetApi.Core.Models;
-using WikiBookGetApi.DataAccessLayer.Data;
+using WikiBookGetApi.DataAccessLayer.Models;
 using WikiBookGetApi.DataAccessLayer.Repositories;
 
 namespace WikiBookGetApi.DataAccessLayer.Tests
@@ -23,7 +23,7 @@ namespace WikiBookGetApi.DataAccessLayer.Tests
             this.mockBookDbContext = new Mock<WikiBookDBContext>();
             this.repository = new BookRepository(mockBookDbContext.Object);
             this.mockDbSet = new Mock<DbSet<Book>>();
-            this.mockDbSet.Object.Add(new Book {Authors = "mock"});
+            this.mockDbSet.Object.Add(new Book { Authors = "mock" });
             //set up mocking object
 
         }
@@ -34,7 +34,7 @@ namespace WikiBookGetApi.DataAccessLayer.Tests
         {
             // Arrange
             this.mockBookDbContext.Setup(m => m.Books).Returns(mockDbSet.Object);
-            
+
             // Act
             var temp = repository.GetAllBooks();
 

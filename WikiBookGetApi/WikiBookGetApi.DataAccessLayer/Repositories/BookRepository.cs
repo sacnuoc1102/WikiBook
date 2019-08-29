@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Remotion.Linq.Utilities;
-using WikiBookGetApi.Core.Models;
 using WikiBookGetApi.Core.SearchModels;
-using WikiBookGetApi.DataAccessLayer.Data;
+using WikiBookGetApi.DataAccessLayer.Models;
 
 namespace WikiBookGetApi.DataAccessLayer.Repositories
 {
@@ -27,7 +26,7 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
 
         public IEnumerable<Book> GetAllBooks()
         {
-            return this.context.Books;
+            return this.context.Books.ToList();
         }
 
         public IEnumerable<Book> GetBooksByAuthor(string author)
@@ -37,7 +36,7 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
                 throw new ArgumentNullException(nameof(author));
             }
 
-            return  context.Books.Where(t =>t.Authors.Contains(author)).ToList();
+            return context.Books.Where(t => t.Authors.Contains(author)).ToList();
         }
 
         public Book GetBookById(int id)
@@ -62,7 +61,7 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
 
         public IEnumerable<Book> GetBook(SearchParameterModel searchParameter)
         {
-            IEnumerable<Book> tempResult= context.Books;
+            IEnumerable<Book> tempResult = context.Books;
 
             if (!string.IsNullOrWhiteSpace(searchParameter.Author))
             {
@@ -72,7 +71,7 @@ namespace WikiBookGetApi.DataAccessLayer.Repositories
             {
                 tempResult = tempResult.Where(b => b.Title.Contains(searchParameter.Title)).ToList();
             }
-            if (searchParameter.Id >0)
+            if (searchParameter.Id > 0)
             {
                 tempResult = tempResult.Where(b => b.BookId == searchParameter.Id).ToList();
             }

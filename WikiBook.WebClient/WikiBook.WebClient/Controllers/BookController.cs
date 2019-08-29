@@ -59,7 +59,19 @@ namespace WikiBook.WebClient.Controllers
         public IActionResult LikeABook()
         {
             var temp = User.Identity.Name.ToString();
-            return Redirect("BookDetail");
+            return View((object)temp);
+        }
+
+        [HttpGet]
+        public IActionResult LikedBookOverview()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LikedBookOverview(string userIdentity)
+        {
+            return View();
         }
     }
 }

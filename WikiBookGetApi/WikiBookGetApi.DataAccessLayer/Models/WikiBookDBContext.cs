@@ -1,13 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using WikiBookGetApi.Core.Models;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace WikiBookGetApi.DataAccessLayer.Data
+namespace WikiBookGetApi.DataAccessLayer.Models
 {
     public partial class WikiBookDBContext : DbContext
     {
         public WikiBookDBContext()
-        { }
+        {
+        }
 
         public WikiBookDBContext(DbContextOptions<WikiBookDBContext> options)
             : base(options)
@@ -16,9 +17,19 @@ namespace WikiBookGetApi.DataAccessLayer.Data
 
         public virtual DbSet<BookTag> BookTags { get; set; }
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<LikedBookByUser> LikedBookByUser { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<ToRead> ToRead { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=localhost;Database=WikiBookDB;Trusted_Connection=True;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -110,6 +121,19 @@ namespace WikiBookGetApi.DataAccessLayer.Data
                 entity.Property(e => e.WorkTextReviewsCount).HasColumnName("work_text_reviews_count");
             });
 
+            modelBuilder.Entity<LikedBookByUser>(entity =>
+            {
+                entity.HasKey(e => new { e.UserIdentity, e.BookId });
+
+                entity.Property(e => e.UserIdentity).HasMaxLength(50);
+
+                entity.HasOne(d => d.Book)
+                    .WithMany(p => p.LikedBookByUser)
+                    .HasForeignKey(d => d.BookId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_LikedBookByUser_books");
+            });
+
             modelBuilder.Entity<Rating>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.BookId });
@@ -120,7 +144,7 @@ namespace WikiBookGetApi.DataAccessLayer.Data
 
                 entity.Property(e => e.BookId).HasColumnName("book_id");
 
-                entity.Property(e => e.RatingPoint).HasColumnName("rating");
+                entity.Property(e => e.RatingValue).HasColumnName("rating");
             });
 
             modelBuilder.Entity<Tag>(entity =>

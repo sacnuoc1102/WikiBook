@@ -4,9 +4,9 @@ using System.Text;
 
 namespace WikiBookGetApi.Core.Models
 {
-    public partial class ToRead
+    public partial class TagDTO
     {
-        public int UserId { get; set; }
-        public int BookId { get; set; }
+        public int TagId { get; set; }
+        public string TagName { get; set; }
     }
 }

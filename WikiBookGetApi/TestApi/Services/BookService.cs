@@ -1,46 +1,50 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WikiBookGetApi.Core.Models;
 using WikiBookGetApi.Core.SearchModels;
 using WikiBookGetApi.Core.Services;
+using WikiBookGetApi.DataAccessLayer.Models;
 using WikiBookGetApi.DataAccessLayer.Repositories;
 
 namespace TestApi.Services
 {
     public class BookService : IBookService
-    {
+    { 
         private readonly IBookRepository bookRepository;
+        private readonly IMapper mapper;
 
-        public BookService(IBookRepository bookRepository)
+        public BookService(IBookRepository bookRepository, IMapper mapper)
         {
             this.bookRepository = bookRepository;
+            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public IEnumerable<Book> GetAllBooks()
+        public IEnumerable<BookDTO> GetAllBooks()
         {
-            return this.bookRepository.GetAllBooks();
+            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetAllBooks());
         }
 
-        public IEnumerable<Book> GetBook(SearchParameterModel searchParameter)
+        public IEnumerable<BookDTO> GetBook(SearchParameterModel searchParameter)
         {
-            return this.bookRepository.GetBook(searchParameter);
+            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetBook(searchParameter));
         }
 
-        public Book GetBookById(int id)
+        public BookDTO GetBookById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Book> GetBooksByAuthor(string author)
+        public IEnumerable<BookDTO> GetBooksByAuthor(string author)
         {
-            return this.bookRepository.GetBooksByAuthor(author);
+            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetBooksByAuthor(author));
         }
 
-        public IEnumerable<Book> GetBooksByTitle(string title)
+        public IEnumerable<BookDTO> GetBooksByTitle(string title)
         {
-            return this.bookRepository.GetBooksByTitle(title);
+            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetBooksByTitle(title));
         }
     }
 }

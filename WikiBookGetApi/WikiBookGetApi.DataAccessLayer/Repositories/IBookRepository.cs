@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WikiBookGetApi.Core.Models;
 using WikiBookGetApi.Core.SearchModels;
+using WikiBookGetApi.DataAccessLayer.Models;
 
 namespace WikiBookGetApi.DataAccessLayer.Repositories
 {

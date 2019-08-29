@@ -11,6 +11,15 @@
     <img alt="" src="@Html.DisplayFor(model =>model.ImageUrl)" style="display: inline; margin-right: 5px; margin-bottom: 20px;" />
 </dd>
 <div>
+    @if (SignInManager.IsSignedIn(User))
+    {   <form asp-controller="Book" asp-action="BookDetail">
+            <p>
+                <button type="submit" class="btn-info" asp-controller="Book" asp-action="LikeABook">Like</button>
+            </p>
+        </form>
+    }
+</div>
+<div>
     <table class="table table-striped">
         <tr>
             <th>
@@ -95,23 +104,5 @@
     </table>
 </div>
 
-<div>
-    @if (SignInManager.IsSignedIn(User))
-    {    <form asp-controller="Book" asp-action="BookDetail">
 
-
-             <p>
-                 Author: <input type="text" name="Author">
-
-                 Title: <input type="text" name="Title">
-
-                 BookId: <input type="number" name="BookId">
-                 <input type="submit" class="bg-light" value="Search" />
-                 <button type="submit" class="btn" asp-controller="Book" asp-action="LikeABook">overview</button>
-             </p>
-
-         </form>
-           
-    }
-</div>
 

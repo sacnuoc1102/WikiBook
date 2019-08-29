@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace WikiBookGetApi.Core.Models
+namespace WikiBookGetApi.DataAccessLayer.Models
 {
     public partial class Book
     {
+        public Book()
+        {
+            LikedBookByUser = new HashSet<LikedBookByUser>();
+        }
+
         public int BookId { get; set; }
         public int GoodreadsBookId { get; set; }
         public int BestBookId { get; set; }
@@ -29,5 +33,7 @@ namespace WikiBookGetApi.Core.Models
         public int Ratings5 { get; set; }
         public string ImageUrl { get; set; }
         public string SmallImageUrl { get; set; }
+
+        public virtual ICollection<LikedBookByUser> LikedBookByUser { get; set; }
     }
 }
