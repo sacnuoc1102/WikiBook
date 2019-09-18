@@ -19,9 +19,14 @@ namespace WikiBook.WebClient.Business
 
         public IList<BookModel> GetUserLikedBooks(string userIdentity)
         {
+            if (string.IsNullOrWhiteSpace(userIdentity))
+            {
+                throw new ArgumentNullException(nameof(userIdentity));      
+            }
             try
             {
-                var connectionstring = config["GetAllBookApiConnectionString"];
+                var connectionstring = config["GetUserLikedBookConnectionString"];
+                connectionstring += userIdentity;
                 var resultList = new List<BookModel>();
                 var client = new HttpClient();
                 var getDataTask = client.GetAsync(connectionstring)

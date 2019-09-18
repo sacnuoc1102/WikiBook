@@ -24,27 +24,27 @@ namespace TestApi.Services
 
         public IEnumerable<BookDTO> GetAllBooks()
         {
-            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetAllBooks());
+            return this.bookRepository.GetBook(book => true);
         }
 
         public IEnumerable<BookDTO> GetBook(SearchParameterModel searchParameter)
         {
-            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetBook(searchParameter));
-        }
+            IEnumerable<BookDTO> bookList = this.bookRepository.GetBook(book => true);
 
-        public BookDTO GetBookById(int id)
-        {
-            throw new NotImplementedException();
-        }
+            if (!string.IsNullOrWhiteSpace(searchParameter.Author))
+            {
+                bookList = bookList.Where(t => t.Authors.Contains(searchParameter.Author));
+            }
+            if (!string.IsNullOrWhiteSpace(searchParameter.Title))
+            {
+                bookList = bookList.Where(b => b.Title.Contains(searchParameter.Title));
+            }
+            if (searchParameter.Id > 0)
+            {
+                bookList = bookList.Where(b => b.BookId == searchParameter.Id);
+            }
 
-        public IEnumerable<BookDTO> GetBooksByAuthor(string author)
-        {
-            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetBooksByAuthor(author));
-        }
-
-        public IEnumerable<BookDTO> GetBooksByTitle(string title)
-        {
-            return mapper.Map<IEnumerable<BookDTO>>(this.bookRepository.GetBooksByTitle(title));
+            return bookList;
         }
     }
 }

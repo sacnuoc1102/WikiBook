@@ -8,12 +8,6 @@ namespace WikiBookGetApi.Core.Services
     {
         IEnumerable<BookDTO> GetAllBooks();
 
-        IEnumerable<BookDTO> GetBooksByAuthor(string author);
-
-        BookDTO GetBookById(int id);
-
-        IEnumerable<BookDTO> GetBooksByTitle(string title);
-
         IEnumerable<BookDTO> GetBook(SearchParameterModel searchParameter);
     }
 }

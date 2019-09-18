@@ -29,7 +29,7 @@ namespace TestApi.Controllers
         }
 
         [HttpPost]
-        public void LikedABook([FromBody] LikedBookByUserDTO likedBook)
+        public ActionResult LikedABook([FromBody] LikedBookByUserDTO likedBook)
         {
             this.userConnectionService.LikeABook(likedBook.UserIdentity, likedBook.BookId);
         }

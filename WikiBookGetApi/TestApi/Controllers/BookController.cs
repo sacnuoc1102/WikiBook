@@ -35,14 +35,10 @@ namespace TestApi.Controllers
         {
             if (string.IsNullOrWhiteSpace(Author) && string.IsNullOrWhiteSpace(Title) && Id == 0)
             {
-                return bookService.GetAllBooks().ToList();
+                return Ok(bookService.GetAllBooks());
             }
             var searchParameter = new SearchParameterModel { Author = Author, Title = Title, Id = Id };
             var tempResult = bookService.GetBook(searchParameter);
-            if (tempResult == null)
-            {
-                return BadRequest("There aren't any result matches your search");
-            }
             return tempResult.ToList();
         }
     }

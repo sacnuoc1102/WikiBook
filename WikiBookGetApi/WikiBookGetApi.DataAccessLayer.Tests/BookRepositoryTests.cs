@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;
@@ -17,11 +18,12 @@ namespace WikiBookGetApi.DataAccessLayer.Tests
         private Mock<WikiBookDBContext> mockBookDbContext;
         private BookRepository repository;
         private Mock<DbSet<Book>> mockDbSet;
+        private IMapper mapper;
 
         public BookRepositoryTests()
         {
             this.mockBookDbContext = new Mock<WikiBookDBContext>();
-            this.repository = new BookRepository(mockBookDbContext.Object);
+            this.repository = new BookRepository(mockBookDbContext.Object, mapper);
             this.mockDbSet = new Mock<DbSet<Book>>();
             this.mockDbSet.Object.Add(new Book { Authors = "mock" });
             //set up mocking object
@@ -36,7 +38,7 @@ namespace WikiBookGetApi.DataAccessLayer.Tests
             this.mockBookDbContext.Setup(m => m.Books).Returns(mockDbSet.Object);
 
             // Act
-            var temp = repository.GetAllBooks();
+            var temp = repository.GetBook(book => true);
 
             //Assert
             Assert.NotNull(temp);
@@ -46,12 +48,12 @@ namespace WikiBookGetApi.DataAccessLayer.Tests
         public void GetAllBooks_EmptyDBObject_FailRetrieved()
         {
             // Arrange           
-
+            var author = "mock";
             // Act
-            var temp = repository.GetAllBooks();
+            var temp = repository.GetBook(book => book.Authors == author);
 
             //Assert
-            Assert.IsNull(temp);
+            Assert.;
         }
     }
 }
